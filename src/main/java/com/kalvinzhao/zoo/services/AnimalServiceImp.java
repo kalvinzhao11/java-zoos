@@ -2,6 +2,7 @@ package com.kalvinzhao.zoo.services;
 
 import com.kalvinzhao.zoo.models.Animal;
 import com.kalvinzhao.zoo.repositories.AnimalRepository;
+import com.kalvinzhao.zoo.views.AnimalCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,9 +17,10 @@ public class AnimalServiceImp implements AnimalService{
     @Autowired
     AnimalRepository animalRepo;
     @Override
-    public List<Animal> findAll() {
-        List<Animal> animals = new ArrayList<>();
-        animalRepo.findAll().iterator().forEachRemaining(animals::add);
+    public List<AnimalCount> findAll() {
+        List<AnimalCount> animals = animalRepo.findAnimalCount();
+//        animals = animalRepo.findAnimalCount();
+//        animalRepo.findAll().iterator().forEachRemaining(animals::add);
         return animals;
     }
 }

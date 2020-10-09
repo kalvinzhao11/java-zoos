@@ -2,6 +2,7 @@ package com.kalvinzhao.zoo.controllers;
 
 import com.kalvinzhao.zoo.models.Animal;
 import com.kalvinzhao.zoo.services.AnimalService;
+import com.kalvinzhao.zoo.views.AnimalCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class AnimalController {
 
     @GetMapping(value = "/count", produces = "application/json")
     public ResponseEntity<?> listAllAnimal(){
-        List<Animal> animals = animalService.findAll();
+        List<AnimalCount> animals = animalService.findAll();
         return new ResponseEntity<>(animals, HttpStatus.OK);
     }
 }
